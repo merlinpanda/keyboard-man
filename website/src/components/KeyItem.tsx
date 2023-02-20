@@ -5,11 +5,24 @@ export interface KeyItemInterface {
   code: string;
   key: string;
   keyCode: number;
-  shiftKey: boolean;
+  shift?: {
+    key: string;
+    keyCode: number;
+  };
+  showShift: boolean;
 }
 
 interface KeyItemProps {
-  key: KeyItemInterface;
+  keyitem: {
+    code: string;
+    key: string;
+    keyCode: number;
+    shift?: {
+      key: string;
+      keyCode: number;
+    };
+    showShift: boolean;
+  };
   isActive: boolean;
   isRight: boolean;
   isError: boolean;
@@ -22,17 +35,22 @@ class KeyItem extends React.Component<KeyItemProps, any> {
   }
 
   render() {
-    const { key, isActive, isRight, isError, isTarget } = this.props
+    const { keyitem, isActive, isRight, isError, isTarget } = this.props
 
     return (
       <>
         <div className={classnames({
           key: true,
-          keyActive: isActive,
-          keyTarget: isTarget,
-          keyRight: isRight,
-          keyError: !isRight && isError,
-        })}>{key.key}</div>
+          'key-active': isActive,
+          'key-target': isTarget,
+          'key-right': isRight,
+          'key-error': !isRight && isError,
+        })}>
+          {keyitem.showShift && (
+            <div>{keyitem.shift?.key}</div>
+          )}
+          <div>{keyitem.key.toUpperCase()}</div>
+        </div>
       </>
     )
   }

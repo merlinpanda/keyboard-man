@@ -4,18 +4,14 @@
 
 
 .key {
-  @apply  w-12 h-12 rounded flex border border-transparent items-center justify-center;
-}
-
-.key.key-normal {
-  @apply bg-slate-200 border-slate-200;
+  @apply  w-16 h-16 rounded flex flex-col gap-1 border items-center justify-center bg-slate-200 border-slate-200;
 }
 
 .key.key-target {
   @apply bg-green-100 border-green-500;
 }
 
-.key.key-success {
+.key.key-right {
   @apply bg-green-500 border-green-500 text-white;
 }
 
@@ -29,8 +25,8 @@
 
 @keyframes key-active {
   50% {
-    transform: scale(1.5);
-    opacity: 0;
+    transform: scale(1.2);
+    opacity: 0.3;
   }
   100% {
     transform: scale(1);

@@ -69,7 +69,18 @@ const Keys: KeyItemInterface[] = [
   }
 ]
 
+const co = {
+  code: 'KeyA',
+  key: 'a',
+  keyCode: 50,
+  shift: {
+    key: 'A',
+    keyCode: 50
+  }
+}
+
 class Key {
+  public code: string;
 
   charCode(wordNumber: number) {
     return String.fromCharCode(wordNumber);
