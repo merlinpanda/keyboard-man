@@ -1,5 +1,103 @@
 export default [
   {
+    "code": "Tab",
+    "key": "Tab",
+    "keyCode": 9,
+    "showShift": false,
+    "flexWidth": 1.5,
+  },
+  {
+    "code": "Backspace",
+    "key": "Backspace",
+    "keyCode": 8,
+    "showShift": false,
+    "flexWidth": 2,
+  },
+  {
+    "code": "CapsLock",
+    "key": "CapsLock",
+    "keyCode": 20,
+    "showShift": false,
+    "flexWidth": 1.8,
+  },
+  {
+    "code": "Enter",
+    "key": "Enter",
+    "keyCode": 13,
+    "showShift": false,
+    "flexWidth": 2.2,
+  },
+  {
+    "code": "ShiftLeft",
+    "key": "Shift",
+    "keyCode": 16,
+    "showShift": false,
+    "flexWidth": 2.2,
+  },
+  {
+    "code": "ShiftRight",
+    "key": "Shift",
+    "keyCode": 16,
+    "showShift": false,
+    "flexWidth": 2.8,
+  },
+  {
+    "code": "ControlLeft",
+    "key": "Ctl",
+    "keyCode": 17,
+    "showShift": false,
+    "flexWidth": 1.2,
+  },
+  {
+    "code": "ControlRight",
+    "key": "Ctl",
+    "keyCode": 17,
+    "showShift": false,
+    "flexWidth": 1.2,
+  },
+  {
+    "code": "MetaLeft",
+    "key": "Meta",
+    "keyCode": 91,
+    "showShift": false,
+    "flexWidth": 1.2,
+  },
+  {
+    "code": "MetaRight",
+    "key": "Meta",
+    "keyCode": 91,
+    "showShift": false,
+    "flexWidth": 1.2,
+  },
+  {
+    "code": "AltLeft",
+    "key": "Alt",
+    "keyCode": 18,
+    "showShift": false,
+    "flexWidth": 1.2,
+  },
+  {
+    "code": "AltRight",
+    "key": "Alt",
+    "keyCode": 18,
+    "showShift": false,
+    "flexWidth": 1.2,
+  },
+  {
+    "code": "ContextMenu",
+    "key": "CM",
+    "keyCode": 93,
+    "showShift": false,
+    "flexWidth": 1.2,
+  },
+  {
+    "code": "Space",
+    "key": " ",
+    "keyCode": 32,
+    "showShift": false,
+    "flexWidth": 6.6,
+  },
+  {
     "code": "KeyA",
     "key": "a",
     "keyCode": 97,
@@ -417,7 +515,8 @@ export default [
     "shift": {
       "key": "|",
       "keyCode": 124
-    }
+    },
+    "flexWidth": 1.5
   },
   {
     "code": "Semicolon",

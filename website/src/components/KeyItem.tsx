@@ -22,6 +22,7 @@ interface KeyItemProps {
       keyCode: number;
     };
     showShift: boolean;
+    flexWidth?: number;
   };
   isActive: boolean;
   isRight: boolean;
@@ -45,7 +46,10 @@ class KeyItem extends React.Component<KeyItemProps, any> {
           'key-target': isTarget,
           'key-right': isRight,
           'key-error': !isRight && isError,
-        })}>
+          'key-pointer': keyitem.code == 'KeyF' || keyitem.code == 'KeyJ'
+        })} style={{
+          flex: keyitem?.flexWidth || 1,
+        }}>
           {keyitem.showShift && (
             <div>{keyitem.shift?.key}</div>
           )}

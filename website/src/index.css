@@ -4,7 +4,12 @@
 
 
 .key {
-  @apply  w-16 h-16 rounded flex flex-col gap-1 border items-center justify-center bg-slate-200 border-slate-200;
+  @apply relative w-16 h-16 rounded flex flex-col gap-1 border items-center justify-center bg-slate-200 border-slate-200;
+}
+.key.key-pointer::after {
+  content: "";
+  height: 2px;
+  @apply absolute rounded left-0 right-0 mx-auto w-4 bg-white bottom-2;
 }
 
 .key.key-target {
@@ -20,7 +25,7 @@
 }
 
 .key.key-active {
-  animation: key-active .5s cubic-bezier(0, 0, 0.2, 1) 1;
+  animation: key-active .2s cubic-bezier(0, 0, 0.2, 1) 1;
 }
 
 @keyframes key-active {
