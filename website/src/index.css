@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.key {
+  @apply  w-12 h-12 rounded flex border border-transparent items-center justify-center;
+}
+
+.key.key-normal {
+  @apply bg-slate-200 border-slate-200;
+}
+
+.key.key-target {
+  @apply bg-green-100 border-green-500;
+}
+
+.key.key-success {
+  @apply bg-green-500 border-green-500 text-white;
+}
+
+.key.key-error {
+  @apply bg-red-500 border-red-500 text-white;
+}
+
+.key.key-active {
+  animation: key-active .5s cubic-bezier(0, 0, 0.2, 1) 1;
+}
+
+@keyframes key-active {
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-o-keyframes key-active {
+  25%, 50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes key-active {
+  25%, 50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

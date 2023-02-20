@@ -1,0 +1,21 @@
+{
+  "name": "keyboard-man",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "yarn workspace website dev"
+  },
+  "author": {
+    "name": "",
+    "email": "salva.cheung@outlook.com"
+  },
+  "workspaces": [
+    "packages/*",
+    "website"
+  ],
+  "devDependencies": {
+    "lerna": "^6.4.1"
+  }
+}
