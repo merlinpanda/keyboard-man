@@ -11,6 +11,7 @@ function App() {
   const KeyLine4 = ["ControlLeft","MetaLeft","AltLeft","Space","AltRight","MetaRight","ContextMenu","ControlRight"]
 
   const [ keypress, setKeypress ] = useState<string>('')
+  const [ timestamp, setTimeStamp ] = useState<number>(0)
 
   const onKeyPress = (e: KeyboardEvent) => {
     setKeypress('')
@@ -18,13 +19,11 @@ function App() {
     const charCode = e.key.charCodeAt(0)
     const isShift = e.shiftKey
     setKeypress(code)
+    setTimeStamp((new Date()).getTime())
   }
 
   React.useEffect(() => {
     document.addEventListener('keypress', onKeyPress);
-    document.addEventListener('keydown', (e) => {
-      console.log(e)
-    })
     // const char = "[]\\;',./1234567890-=`";
     // const uppers = '{}|:"<>?!@#$%^&*()_+~';
     // // let keys = [];
@@ -53,22 +52,18 @@ function App() {
     // // console.log('68 char code', String.fromCharCode(68));
   }, [])
 
-  const printThis = () => {
-
-  }
-
   const KeyItemCom = (code: string) => {
     let keyTarget = UsKeys.find(key => {
       return key.code === code
     })
     const isRight = keypress === code
     let isActive = keypress == code
-    return keyTarget ? <KeyItem keyitem={keyTarget} isActive={isActive} isError={false} isRight={false} isTarget={false}  /> : '';
+    return keyTarget ? <KeyItem keyitem={keyTarget} isActive={isActive} isError={false} isRight={false} isTarget={false} timestamp={timestamp} /> : '';
   }
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div className='p-2 text-2xl text-center'>Hi this</div>
+      <div className='p-2 text-2xl text-center mb-6'>Keyboard Man</div>
       <div className="keyboard flex flex-col gap-1 justify-center">
         <div className="flex flex-row justify-center gap-1">
           {KeyLine0.map(key => {

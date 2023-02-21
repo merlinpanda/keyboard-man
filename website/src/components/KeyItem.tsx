@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import classnames from 'classnames'
 
 export interface KeyItemInterface {
@@ -28,24 +28,40 @@ interface KeyItemProps {
   isRight: boolean;
   isError: boolean;
   isTarget: boolean;
+  timestamp: number;
 }
 
 class KeyItem extends React.Component<KeyItemProps, any> {
+
+  public isActive: boolean = false
+
+  public keyDom: RefObject<HTMLDivElement> | undefined
+
   constructor(props: KeyItemProps) {
     super(props)
+
+    this.keyDom = React.createRef<HTMLDivElement>()
+  }
+
+  componentDidUpdate(): void {
+    if (this.props.isActive) {
+      this.keyDom?.current?.classList.remove('key-active')
+      window.requestAnimationFrame(() => {
+        this.keyDom?.current?.classList.add('key-active')
+      })
+    }
   }
 
   render() {
-    const { keyitem, isActive, isRight, isError, isTarget } = this.props
+    const { keyitem, isActive, isError, isTarget } = this.props
 
     return (
       <>
-        <div className={classnames({
+        <div ref={this.keyDom} className={classnames({
           key: true,
-          'key-active': isActive,
           'key-target': isTarget,
-          'key-right': isRight,
-          'key-error': !isRight && isError,
+          'key-right': isActive,
+          'key-error': !isActive && isError,
           'key-pointer': keyitem.code == 'KeyF' || keyitem.code == 'KeyJ'
         })} style={{
           flex: keyitem?.flexWidth || 1,
